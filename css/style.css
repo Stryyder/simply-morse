@@ -15,7 +15,17 @@ main {
   background: var(--bg-dark);
   color: var(--fg-light);
   margin: 0 auto;
-  height: 100vh;
+  height: 80vh;
+}
+
+h1,
+h2 {
+  font-size: 3rem;
+  color: white;
+}
+
+p {
+  font-size: 1rem;
 }
 
 #morse,
@@ -46,7 +56,6 @@ textarea {
 
 #arrowLeft,
 #arrowRight {
-  opacity: 0.4;
   box-shadow: 10px 5px 5px black;
   border-radius: 50%;
   background: var(--fg-form);
@@ -55,9 +64,15 @@ textarea {
 
 #arrowLeft:hover,
 #arrowRight:hover {
-  opacity: 1 ease-in-out;
-  transition: 0.3s;
+  transition: 0.3s ease-in;
   box-shadow: 5px 3px 3px black;
+}
+
+#arrowLeft:active,
+#arrowRight:active {
+  background: var(--bg-dark);
+  opacity: 1;
+  transition: 0.01s ease-in;
 }
 
 #arrowRight {

@@ -1,13 +1,4 @@
-let morse = document.getElementById("arrowRight"); // morse to text
-let plainText = document.getElementById("arrowLeft"); // text to morse
-
-let morseIn = morse.value;
-let plainTextIn = plainText.value;
-
-morse.addEventListener("onclick", morseToText());
-plainText.addEventListener("onclick", textToMorse());
-
-const DICTIONARY = {
+let DICTIONARY = {
   A: ". _",
   N: "_ .",
   B: "_ . . .",
@@ -47,18 +38,69 @@ const DICTIONARY = {
   0: "_ _ _ _ _"
 };
 
-function morseToText(e) {
-  plainTextIn.value = "";
-  for (let i = 0; i < morse.value.length; i++) {
-    plainTextIn.value += "letter";
-    console.log("fired m2t");
+document
+  .getElementById("morseDisplay")
+  .addEventListener("keydown", arrowKeysToMorse);
+
+// 37 left arrow = DOT, 39 right arrow = DASH
+function arrowKeysToMorse(e) {
+  let morse = document.getElementById("morseDisplay");
+  e.preventDefault();
+  switch (e.keyCode) {
+    case 37:
+      // LEFT Arrow = DOT
+      morse.value += ". ";
+      break;
+
+    case 39:
+      // RIGHT Arrow = DASH
+      morse.value += "_ ";
+      break;
+
+    case 32:
+      // SPACE = WORD BREAK
+      morse.value += "   ";
+      break;
   }
 }
 
-function textToMorse(e) {
-  morseIn.value = "";
-  for (let i = 0; i < morse.value.length; i++) {
-    morseIn.value += "letter";
-    console.log("fired t2m");
-  }
+function morseToText() {
+  document.getElementById("plainTextDisplay").value = "";
+  let plainText = document.getElementById("plainTextDisplay");
+  let morse = document
+    .getElementById("morseDisplay")
+    .value.toString()
+    .toUpperCase()
+    .split("");
+
+  // this does text to morse - repair later
+  plainText.value = morse
+    .map(letter => {
+      for (let key in DICTIONARY) {
+        if (key === letter) {
+          return DICTIONARY[key];
+        }
+      }
+    })
+    .join("   ");
+}
+
+function textToMorse() {
+  document.getElementById("morseDisplay").value = "";
+  let morse = document.getElementById("morseDisplay");
+  let plainText = document
+    .getElementById("plainTextDisplay")
+    .value.toString()
+    .toUpperCase()
+    .split("");
+
+  morse.value = plainText
+    .map(letter => {
+      for (let key in DICTIONARY) {
+        if (key === letter) {
+          return DICTIONARY[key];
+        }
+      }
+    })
+    .join("   ");
 }

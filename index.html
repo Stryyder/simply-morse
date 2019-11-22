@@ -8,32 +8,54 @@
     <link href="css/style.css" rel="stylesheet" />
   </head>
   <body>
+    <h1>simply-morse</h1>
     <main>
       <section id="morse">
+        <h2>morse</h2>
+        <p>
+          Left ARROW key = DOT. Right ARROW key = DASH. SPACE for a word break
+        </p>
         <textarea
           maxlength="500"
           rows="10"
           cols="30"
           placeholder="Enter Morse Code"
+          id="morseDisplay"
+          value=""
         ></textarea>
       </section>
 
       <section id="transfer">
-        <img src="img/left.svg" id="arrowLeft" alt="Left Arrow" width="50px" />
+        <!-- convert text to morse -->
         <img
-          src="img/left.svg"
+          src="img/arrow.svg"
+          id="arrowLeft"
+          alt="Left Arrow"
+          width="50px"
+          onclick="textToMorse()"
+        />
+        <!-- convert morse to text -->
+        <img
+          src="img/arrow.svg"
           id="arrowRight"
           alt="Right Arrow"
           width="50px"
+          onclick="morseToText()"
         />
       </section>
 
       <section id="plainText">
+        <h2>text</h2>
+        <p>
+          Enter plain text then press left arrow to convert to morse
+        </p>
         <textarea
           maxlength="500"
           rows="10"
           cols="30"
           placeholder="Enter Plain Text"
+          id="plainTextDisplay"
+          value=""
         ></textarea>
       </section>
     </main>
