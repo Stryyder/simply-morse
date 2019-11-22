@@ -7,6 +7,10 @@ body {
   --fg-form: #95c623;
 }
 
+.hint {
+  color: var(--fg-form);
+}
+
 .cheat-sheet {
   display: none;
 
@@ -92,18 +96,29 @@ textarea {
   justify-content: space-around;
 }
 
-#arrowLeft,
-#arrowRight {
+#arrowLeft {
   box-shadow: 10px 5px 5px black;
   border-radius: 50%;
   background: var(--fg-form);
   padding: 10px;
 }
 
-#arrowLeft:hover,
-#arrowRight:hover {
+#arrowLeft:hover {
   transition: 0.3s ease-in;
   box-shadow: 5px 3px 3px black;
+}
+
+#arrowRight {
+  transform: scaleX(-1);
+  box-shadow: -10px 3px 3px black;
+  background: var(--fg-form);
+  padding: 10px;
+  border-radius: 50%;
+}
+
+#arrowRight:hover {
+  transition: 0.3s ease-in;
+  box-shadow: -5px 3px 3px black;
 }
 
 #arrowLeft:active,
@@ -111,8 +126,4 @@ textarea {
   background: var(--bg-dark);
   opacity: 1;
   transition: 0.01s ease-in;
-}
-
-#arrowRight {
-  transform: scaleX(-1);
 }

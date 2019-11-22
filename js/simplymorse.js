@@ -58,9 +58,27 @@ function arrowKeysToMorse(e) {
       break;
 
     case 32:
-      // SPACE = WORD BREAK
-      morse.value += "   ";
+      // SPACE = LETTER BREAK
+      morse.value += "|";
       break;
+
+    case 8:
+      // Backspace to allow deletion (deletes one char from end)
+      morse.value = morse.value.slice(0, -1);
+      break;
+
+    case 13:
+      // Enter for a new word
+      morse.value = morse.value + "   "; // push to an array but also keep stuff in a line like normal text
+      break;
+
+    case 27:
+      // escape key to clear input
+      morse.value = "";
+    default:
+      alert(
+        "Please only include morse code in this box by using the left and right arrow keys + space for word breaks"
+      );
   }
 }
 
@@ -73,13 +91,12 @@ function morseToText() {
     .toUpperCase()
     .split("");
 
-  plainText.value = morse
-    .map(letter => {
-      for (let key in DICTIONARY) {
-        // check for full letter symbol in dictionary
-      }
-    })
-    .join("   ");
+  let morseWithoutSpaces = morse.filter(character => character !== " ");
+  // need to break on end of letter
+
+  console.log("MWS: " + morseWithoutSpaces);
+  console.log("DWS: " + dictWithoutSpaces);
+  //plainText.value =
 }
 
 function textToMorse() {

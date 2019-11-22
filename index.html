@@ -13,21 +13,21 @@
       <img src="img/morseCode.svg" id="miniMorse" width="340px" />
     </section>
     <main>
-      <section id="morse">
-        <h2>morse</h2>
+      <section id="plainText">
         <p>
-          Left ARROW = DOT. Right ARROW = DASH. SPACE = word break
+          Enter plain text then click right arrow icon to convert to morse
         </p>
+        <h2>text</h2>
+
         <textarea
           maxlength="500"
           rows="10"
           cols="30"
-          placeholder="Use Left/Right Keys to Add Morse Code"
-          id="morseDisplay"
+          placeholder="Enter Plain Text"
+          id="plainTextDisplay"
           value=""
         ></textarea>
       </section>
-
       <section id="transfer">
         <!-- convert text to morse -->
         <img
@@ -35,7 +35,7 @@
           id="arrowLeft"
           alt="Left Arrow"
           width="50px"
-          onclick="textToMorse()"
+          onclick="morseToText()"
         />
         <!-- display morse cheat sheet -->
         <img
@@ -52,21 +52,25 @@
           id="arrowRight"
           alt="Right Arrow"
           width="50px"
-          onclick="morseToText()"
+          onclick="textToMorse()"
         />
       </section>
-
-      <section id="plainText">
-        <h2>text</h2>
+      <section id="morse">
         <p>
-          Enter plain text then press left arrow to convert to morse
+          Left ARROW = <span class="hint">DOT</span>. Right ARROW =
+          <span class="hint">DASH</span>. [SPACE] = New
+          <span class="hint">LETTER</span>. [ENTER] = New
+          <span class="hint">WORD</span>. [ESC] =
+          <span class="hint">CLEAR</span>.
         </p>
+        <h2>morse</h2>
+
         <textarea
           maxlength="500"
           rows="10"
           cols="30"
-          placeholder="Enter Plain Text"
-          id="plainTextDisplay"
+          placeholder="Use Left/Right Keys to Add Morse Code"
+          id="morseDisplay"
           value=""
         ></textarea>
       </section>
