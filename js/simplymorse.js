@@ -73,13 +73,10 @@ function morseToText() {
     .toUpperCase()
     .split("");
 
-  // this does text to morse - repair later
   plainText.value = morse
     .map(letter => {
       for (let key in DICTIONARY) {
-        if (key === letter) {
-          return DICTIONARY[key];
-        }
+        // check for full letter symbol in dictionary
       }
     })
     .join("   ");
@@ -103,4 +100,9 @@ function textToMorse() {
       }
     })
     .join("   ");
+}
+
+function toggleCheatSheet() {
+  let elem = document.getElementById("quick-view");
+  elem.classList.toggle("cheat-sheet-on");
 }

@@ -7,6 +7,43 @@ body {
   --fg-form: #95c623;
 }
 
+.cheat-sheet {
+  display: none;
+
+  padding: 10px;
+  margin: 0 auto;
+  opacity: 0;
+  z-index: 10;
+}
+
+#miniMorse {
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+  background: #eaeaeb;
+  box-shadow: 10px 5px 5px black;
+  transition: 0.4s ease-in-out;
+}
+
+#morseCode-thumbnail {
+  background: white;
+  box-shadow: 5px 2px 2px var(--fg-form);
+}
+
+.cheat-sheet-on {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  margin: 0 auto;
+  opacity: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
 main {
   display: grid;
   grid-template-columns: 1fr 0.1fr 1fr;
@@ -16,6 +53,7 @@ main {
   color: var(--fg-light);
   margin: 0 auto;
   height: 80vh;
+  z-index: 1;
 }
 
 h1,
