@@ -37,29 +37,38 @@ let DICTIONARY = {
   5: ". . . . .",
   0: "_ _ _ _ _"
 };
-
+let currentLetter = "";
 document
   .getElementById("morseDisplay")
-  .addEventListener("keydown", arrowKeysToMorse);
+  .addEventListener("keydown", morseShortcutKeys);
 
 // 37 left arrow = DOT, 39 right arrow = DASH
-function arrowKeysToMorse(e) {
+function morseShortcutKeys(e) {
   let morse = document.getElementById("morseDisplay");
+  let plainText = document.getElementById("plainTextDisplay");
+
+  // display converted letters as we type
   e.preventDefault();
   switch (e.keyCode) {
     case 37:
       // LEFT Arrow = DOT
       morse.value += ". ";
+      currentLetter += ". ";
       break;
 
     case 39:
       // RIGHT Arrow = DASH
       morse.value += "_ ";
+      currentLetter += "_ ";
       break;
 
     case 32:
       // SPACE = LETTER BREAK
       morse.value += "|";
+      currentLetter = currentLetter.trim();
+      plainText.value += getKeyByValue(DICTIONARY, currentLetter);
+      console.log(currentLetter);
+      currentLetter = "";
       break;
 
     case 8:
@@ -70,15 +79,23 @@ function arrowKeysToMorse(e) {
     case 13:
       // Enter for a new word
       morse.value = morse.value + "   "; // push to an array but also keep stuff in a line like normal text
+      plainText.value += "   ";
       break;
 
     case 27:
       // escape key to clear input
       morse.value = "";
+      plainText.value = "";
+      break;
     default:
       alert(
         "Please only include morse code in this box by using the left and right arrow keys + space for word breaks"
       );
+  }
+
+  function getKeyByValue(object, value) {
+    let tempValue = Object.keys(object).find(key => object[key] === value);
+    return tempValue === undefined ? "X" : tempValue;
   }
 }
 

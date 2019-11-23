@@ -1,3 +1,7 @@
+/*
+
+*/
+
 body {
   border-style: border-box;
   background: #002626;
@@ -35,6 +39,11 @@ body {
   box-shadow: 5px 2px 2px var(--fg-form);
 }
 
+#morseCode-thumbnail:hover {
+  box-shadow: 2px 1px 1px var(--fg-form);
+  transition: 0.2s ease-in-out;
+}
+
 .cheat-sheet-on {
   display: block;
   position: absolute;
@@ -52,11 +61,11 @@ main {
   display: grid;
   grid-template-columns: 1fr 0.1fr 1fr;
   grid-gap: 10px;
-  align-items: center;
+  align-items: start;
   background: var(--bg-dark);
   color: var(--fg-light);
   margin: 0 auto;
-  height: 80vh;
+  height: 100vh;
   z-index: 1;
 }
 
@@ -64,10 +73,13 @@ h1,
 h2 {
   font-size: 3rem;
   color: white;
+  font-family: "Muli", sans-serif;
 }
 
+textarea,
 p {
   font-size: 1rem;
+  font-family: "Muli", sans-serif;
 }
 
 #morse,

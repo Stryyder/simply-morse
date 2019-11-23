@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simply Morse</title>
     <link href="css/style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <h1>simply-morse</h1>
@@ -14,9 +18,7 @@
     </section>
     <main>
       <section id="plainText">
-        <p>
-          Enter plain text then click right arrow icon to convert to morse
-        </p>
+        
         <h2>text</h2>
 
         <textarea
@@ -27,16 +29,19 @@
           id="plainTextDisplay"
           value=""
         ></textarea>
+        <p>
+          Enter plain text then click right arrow icon to convert to morse
+        </p>
       </section>
       <section id="transfer">
-        <!-- convert text to morse -->
+        <!-- convert text to morse 
         <img
           src="img/arrow.svg"
           id="arrowLeft"
           alt="Left Arrow"
           width="50px"
           onclick="morseToText()"
-        />
+        /> -->
         <!-- display morse cheat sheet -->
         <img
           src="img/morseCode.svg"
@@ -56,13 +61,7 @@
         />
       </section>
       <section id="morse">
-        <p>
-          Left ARROW = <span class="hint">DOT</span>. Right ARROW =
-          <span class="hint">DASH</span>. [SPACE] = New
-          <span class="hint">LETTER</span>. [ENTER] = New
-          <span class="hint">WORD</span>. [ESC] =
-          <span class="hint">CLEAR</span>.
-        </p>
+        
         <h2>morse</h2>
 
         <textarea
@@ -73,6 +72,17 @@
           id="morseDisplay"
           value=""
         ></textarea>
+        <p>
+          Left ARROW = <span class="hint">DOT</span>. </br>
+          Right ARROW =
+          <span class="hint">DASH</span>.</br>
+           [SPACE] = New
+          <span class="hint">LETTER</span>.</br>
+           [ENTER] = New
+          <span class="hint">WORD</span>. </br>
+          [ESC] =
+          <span class="hint">CLEAR</span>.
+        </p>
       </section>
     </main>
     <script src="js/simplymorse.js"></script>
