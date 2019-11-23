@@ -11,6 +11,4 @@ convert plain text to morse code or vice versa
 
 ## Notes
 
-- Work in progress
-- text to morse code working (minus protections)
-- morse to text shortcut keys functional (semi-protected)
+- Mostly working. There are a few UI-ish things I will fix because they bug me though
